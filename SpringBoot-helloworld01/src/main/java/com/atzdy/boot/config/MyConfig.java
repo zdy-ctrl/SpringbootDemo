@@ -1,9 +1,11 @@
 package com.atzdy.boot.config;
 
 import ch.qos.logback.core.boolex.EvaluationException;
+import com.atzdy.boot.pojo.Car;
 import com.atzdy.boot.pojo.Pet;
 import com.atzdy.boot.pojo.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +23,8 @@ import org.springframework.context.annotation.Import;
  */
 //告诉SpringBoot这是一个配置类==配置文件
 //@Import({EvaluationException.class})
-@Configuration(proxyBeanMethods = false)
+@Configuration(proxyBeanMethods = false) //告诉SpringBoot这是一个配置类==配置文件
+@EnableConfigurationProperties(Car.class)//1.开启Car的属性配置绑定功能   2.把组件自动注册到容器中
 public class MyConfig {
 
     /**
